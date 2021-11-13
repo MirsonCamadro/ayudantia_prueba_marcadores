@@ -10,5 +10,6 @@ class Category < ApplicationRecord
       sc.public = status
       sc.save
     end
+  end
 
 end
