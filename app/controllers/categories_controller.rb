@@ -15,6 +15,11 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def api
+    @category = Category.find(params[:id])
+    render json: @category.to_json(include: :subcategories)
+  end
+
   private 
 
   def category_params

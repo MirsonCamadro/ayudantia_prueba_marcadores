@@ -1,0 +1,2 @@
+$("#product_form").html(" ")
+$("#product-<%= @product.id %>").replaceWith('<%= j render(@product, product: @product)%>')
