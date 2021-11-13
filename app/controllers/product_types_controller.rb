@@ -2,6 +2,8 @@ class ProductTypesController < ApplicationController
   def index
     @product_types = ProductType.all
     @product_type = ProductType.new
+
+    @products = Product.all
   end
 
   def create 

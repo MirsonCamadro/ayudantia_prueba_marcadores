@@ -15,9 +15,21 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def update 
+    @category = Category.find(params[:id])
+    @category.public = @category.subcategories.public
+    respond_to do |f|
+      if @category.update!(categry_params) 
+        f.html { redirect_to root_path, notice: "creaste"}
+      else
+        f.html { redirect_to root_path, alert: "boo"}
+      end
+    end
+  end
+
   def api
     @category = Category.find(params[:id])
-    render json: @category.to_json(include: :subcategories)
+    render json: @category.to_json(include: [:subcategories, :products])
   end
 
   private 

@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'faker'
 Category.destroy_all
 ProductType.destroy_all
 
@@ -47,5 +47,13 @@ subcategories_3 .each do |categorie|
     Category.create(
         name: categorie,
         category_id: 3
+    )
+end
+
+20.times do
+    Product.create(
+        name: Faker::Cannabis.strain,
+        category_id: Random.rand(1..5),
+        product_type_id: Random.rand(1..2)
     )
 end

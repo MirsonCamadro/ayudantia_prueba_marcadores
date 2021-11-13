@@ -20,3 +20,5 @@
   </tbody>
 </table>
 <%= link_to "hola", root_path, class: "btn btn-success"  %>
+
+<%= pie_chart @products.group("product_type_id").count %>
