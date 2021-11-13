@@ -1,2 +1,26 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<h1>ProductTypes#index</h1>
+<p>Find me in app/views/category/index.html.erb</p>
+
+<%= render 'form', category: @category %>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">public</th>
+      <th scope="col">category id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+        <tr id="product-<%= category.id %>">  
+            <th scope="row"><%= category.id %></th>
+            <td><%= category.name %> </td>
+            <td><%= category.public %> </td>
+            <td><%= category.category_id %> </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "hola", root_path, class: "btn btn-success"  %>
